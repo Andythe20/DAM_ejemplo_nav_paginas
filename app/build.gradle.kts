@@ -32,6 +32,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -41,6 +42,10 @@ android {
 }
 
 dependencies {
+    //para trabajar con persistencia local
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.gson)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -51,7 +56,7 @@ dependencies {
     implementation(libs.androidx.material3)
 
     // Add this line for Glance AppWidget
-    implementation("androidx.glance:glance-appwidget:1.1.0")
+    implementation("androidx.glance:glance-appwidget:1.1.1")
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose) // Use the latest version
 
