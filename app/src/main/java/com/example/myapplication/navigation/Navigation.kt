@@ -6,13 +6,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.myapplication.data.AppState
 import com.example.myapplication.ui.views.LoginScreen
+import com.example.myapplication.ui.views.NotasScreen
+import com.example.myapplication.ui.views.RegistroScreen
 
 @Composable
-fun AppNavigation(navHostController: NavHostController, appState: AppState){
+fun AppNavigation(navController: NavHostController, appState: AppState){
     NavHost(
-        navHostController = navHostController, startDestination = "login",
+        navController = navController,
+        startDestination = "login",
     ){
 
-        composable("login"){LoginScreen( navController = navHostController)}
+        composable("login"){LoginScreen(navController, appState)}
+        composable("RegisterScreen"){RegistroScreen(navController, appState)}
+        composable("NotasScreen"){NotasScreen(navController, appState)}
     }
 }

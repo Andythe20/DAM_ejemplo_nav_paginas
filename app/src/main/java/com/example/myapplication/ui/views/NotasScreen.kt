@@ -16,11 +16,12 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import com.example.myapplication.data.AppState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotasScreen(navController: NavController) {
+fun NotasScreen(navController: NavHostController, appState: AppState) {
     Scaffold (
         topBar = { TopAppBar(title = { Text("Block de Notas") }) }
     ){ padding ->

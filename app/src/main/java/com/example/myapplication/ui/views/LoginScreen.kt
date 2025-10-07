@@ -24,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.myapplication.data.AppState
 
 /*Guardar componentes para reutilizarlos*/
 
@@ -32,7 +33,7 @@ navcontroller: para moverme entre pantallas.
 */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(navController: NavController, appState: AppState) {
 
     /* variables para guardar el usuario, la contraseña y el error.
     * by remember: para que se mantenga el estado de la variable
@@ -95,14 +96,11 @@ fun LoginScreen(navController: NavController) {
                 onClick = {
                     if (usuario.isBlank() || password.isBlank()){
                         error = "Usuario y/o contraseña vacíos."
-                    } else if (usuario.length < 1){
-                        error = "Usuario debe tener al menos 1 caracter."
-                    } else if(password.length < 4){
-                        error = "Contraseña debe tener al menos 4 caracteres."
-                    } else {
+                    } else if (appState.login(usuario, password)){
                         error = ""
-                        //navegar a la pantalla NotasScreen
                         navController.navigate("NotasScreen")
+                    } else {
+                        error = "Usuario y/o contraseña incorrectos."
                     }
                 },
                 modifier = Modifier.fillMaxWidth()

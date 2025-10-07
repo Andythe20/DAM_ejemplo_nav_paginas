@@ -43,8 +43,8 @@ android {
 
 dependencies {
     //para trabajar con persistencia local
-    implementation(libs.androidx.datastore.preferences)
-    implementation(libs.gson)
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+    implementation("com.google.code.gson:gson:2.13.2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

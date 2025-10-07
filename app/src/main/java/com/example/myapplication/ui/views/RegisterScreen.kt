@@ -20,11 +20,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.myapplication.data.AppState
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegistroScreen(navController: NavController) {
+fun RegistroScreen(navController: NavController, appState: AppState) {
 
     Scaffold (
         topBar = { TopAppBar(title = { Text("Registro Usuario") }) }
